@@ -1,7 +1,5 @@
 #
 # Copyright (C) 2020 The Android Open Source Project
-# Copyright (C) 2020 The TWRP Open Source Project
-# Copyright (C) 2020 SebaUbuntu's TWRP device tree generator
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -31,7 +29,7 @@ $(call inherit-product, vendor/omni/config/gsm.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := a40
-PRODUCT_NAME := omni_a40
+PRODUCT_NAME := lineage_a40
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := Samsung Galaxy A40
 PRODUCT_MANUFACTURER := samsung
