@@ -1,0 +1,10 @@
+[
+    {
+        "repository": "kevios12/kernel_samsung_a40",
+        "target_path": "kernel/samsung/a40"
+    },
+    {
+        "repository": "android_hardware_samsung",
+        "target_path": "hardware/samsung"
+    }
+]
