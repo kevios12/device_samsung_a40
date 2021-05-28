@@ -16,3 +16,4 @@
 
 add_lunch_combo lineage_a40-userdebug
 add_lunch_combo lineage_a40-eng
+add_lunch_combo lineage_a40-user
