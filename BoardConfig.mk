@@ -19,6 +19,9 @@ DEVICE_PATH := device/samsung/a40
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
 
+# Build system
+BUILD_BROKEN_DUP_RULES := true
+
 # HIDL
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
@@ -123,4 +126,5 @@ USE_XML_AUDIO_POLICY_CONF := 1
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
 
-
+# Include
+TARGET_SPECIFIC_HEADER_PATH := $(COMMON_PATH)/include
