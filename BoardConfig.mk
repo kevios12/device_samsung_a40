@@ -151,3 +151,6 @@ BOARD_VNDK_VERSION := current
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
+
+# Inherit from the proprietary version
+-include vendor/samsung/a40/BoardConfigVendor.mk
