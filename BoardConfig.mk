@@ -128,3 +128,9 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
 
 # Include
 TARGET_SPECIFIC_HEADER_PATH := $(COMMON_PATH)/include
+
+# Lineage hardware
+ifneq ($(findstring lineage, $(TARGET_PRODUCT)),)
+BOARD_HARDWARE_CLASS := \
+    hardware/samsung/lineagehw
+endif
