@@ -1,7 +1,5 @@
 #
 # Copyright (C) 2020 The Android Open Source Project
-# Copyright (C) 2020 The TWRP Open Source Project
-# Copyright (C) 2020 SebaUbuntu's TWRP device tree generator
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,6 +19,14 @@ DEVICE_PATH := device/samsung/a40
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
 
+# Platform
+BOARD_VENDOR := samsung
+TARGET_BOARD_PLATFORM := exynos7904
+TARGET_SOC := exynos7904
+TARGET_BOOTLOADER_BOARD_NAME := universal7885
+TARGET_NO_BOOTLOADER := true
+TARGET_NO_RADIOIMAGE := true
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -37,14 +43,23 @@ TARGET_BOARD_SUFFIX := _64
 TARGET_USES_64_BIT_BINDER := true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := a40
+TARGET_OTA_ASSERT_DEVICE := a40,a40dd
 
 # Bootloader"
 TARGET_BOOTLOADER_BOARD_NAME := SRPSA16C003KU
 
+# Binder
+TARGET_USES_64_BIT_BINDER := true
+
+# Partitions
+BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 39845888
+BOARD_CACHEIMAGE_PARTITION_SIZE := 157286400
+BOARD_FLASH_BLOCK_SIZE := 131072
+
+
 # File systems
 BOARD_HAS_LARGE_FILESYSTEM := true
-#BOARD_RECOVERYIMAGE_PARTITION_SIZE := 43675664 # This is the maximum known partition size, but it can be higher, so we just omit it
 BOARD_SYSTEMIMAGE_PARTITION_TYPE := ext4
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -52,10 +67,8 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 TARGET_COPY_OUT_VENDOR := vendor
 
-# Kernel
+# Image
 BOARD_KERNEL_CMDLINE := buildvariant=eng
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
 BOARD_INCLUDE_RECOVERY_DTBO := true
 BOARD_BOOTIMG_HEADER_VERSION := 1
 BOARD_KERNEL_BASE := 0x10000000
@@ -67,6 +80,13 @@ BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+
+# Prebuilt
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
+TARGET_PREBUILT_DTBIMAGE := $(DEVICE_PATH)/prebuilt/dtb.img
+
+# Kernel
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/samsung/a40
@@ -89,3 +109,9 @@ TW_EXTRA_LANGUAGES := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
+
+# System-as-root
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
+
+# Audio
+USE_XML_AUDIO_POLICY_CONF := 1
